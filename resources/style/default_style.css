@@ -1,0 +1,211 @@
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.page-header {
+    margin-bottom: 10px;
+}
+
+
+.active {
+    background-color: #4CAF50;
+}
+
+body {
+  margin-top: 5px;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  background-color: #cb98ae;
+}
+
+h4 {
+    margin: 72px;
+   display: inline;
+}
+
+h3 {
+  margin-top: 2rem;
+}
+
+.row {
+	margin-bottom: 2rem;
+    background-color: #cbc88a;
+    text-align:center;
+	margin-right: 10px;
+}
+
+.operate {
+	text-align:center;
+	background-color: #cbc88a;
+	align: center;
+
+}
+.row .row {
+  margin-top: 1rem;
+  margin-bottom: 0;
+
+}
+
+.container {
+    position: relative;
+    width: 100%;
+}
+
+.leyenda{
+	width: auto;
+    text-align: center;
+    height: auto;
+    margin-bottom: 25px;
+    margin-right: 10px;
+}
+
+.operate{
+	width: auto;
+    text-align: center;
+    height: auto;
+    margin-bottom: 25px;
+    margin-right: 10px;
+}
+
+[class*="col-"] {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  background-color: rgba(86,61,124,.15);
+  border: 1px solid rgba(86,61,124,.2);
+}
+
+[id^="cruz"] {
+    width:25px;
+    height:20px;
+}
+
+[id^="fila"]:hover{
+    background-color: #FFFF99;
+}
+
+#b01 {
+    width:46px;
+}
+
+#b02 {
+    width:46px;
+}
+
+hr {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.divTable{
+    display: table;
+    width: 100%;
+    aling:center;
+    text-align: center;
+    width: 80%;
+}
+.divTableRow {
+    display: table-row;
+}
+.divTableHeading {
+    background-color: #EEE;
+    display: table-header-group;
+}
+.divTableCell, .divTableHead {
+    display: table-cell;
+    padding: 3px 10px;
+    border: 1px solid #000000;
+}
+.divTableHeading {
+    background-color: #EEE;
+    display: table-header-group;
+    font-weight: bold;
+}
+.divTableFoot {
+    background-color: #EEE;
+    display: table-footer-group;
+    font-weight: bold;
+}
+.divTableBody {
+    display: table-row-group;
+}
+input,select{
+    border: 1px solid #000000;
+    resize: horizontal;
+}
+/*-----------------------------------------------------------------------------------------------------------*/
+/* Style inputs with type="text", select elements and textareas */
+
+input[type=text], textarea {
+    width: 100%; /* Full width */
+    padding: 12px; /* Some padding */
+    border: 1px solid #cc005d; /* Gray border */
+    border-radius: 4px; /* Rounded borders */
+    box-sizing: border-box; /* Make sure that padding and width stays in place */
+    margin-top: 6px; /* Add a top margin */
+    margin-bottom: 16px; /* Bottom margin */
+    resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+}
+
+/* Style the submit button with a specific background color etc */
+input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* When moving the mouse over the submit button, add a darker green color */
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+/* Add a background color and some padding around the form */
+
+.container {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    min-width: 360px;
+}
+
+/* Footer*/
+
+.footer {
+    background: #cb98ae;
+    padding: 10px 0;
+}
+.footer a {
+    color: #70726F;
+    font-size: 20px;
+    padding: 10px;
+    border-right: 1px solid #70726F;
+    transition: all .5s ease;
+}
+.footer a:first-child {
+    border-left: 1px solid #70726F;
+}
+.footer a:hover {
+    color: white;
+}

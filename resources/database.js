@@ -13,12 +13,11 @@ var con = mysql.createConnection({
 http.createServer(function (req, res) {
     fs.readFile('../index.html', function(err, data) {
         res.writeHead(200, {'Content-Type': 'text/html'});
-        res.write(data);
+        res.end(data);
     });
     fs.readFile('./style/default_style.css', function(err, data) {
         res.writeHead(200, {"Content-Type": "text/css"});
-        res.write(data);
-        res.end();
+        res.end(data);
     });
 
 }).listen(8080);

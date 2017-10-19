@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="./resources/favicon.png">
+    <link rel="icon" href="./favicon.png">
 
     <title>Calculadora online</title>
 
@@ -18,7 +18,7 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"/>
 
     <!-- Custom styles for this template -->
-    <link href="resources/style/default_style.css" rel="stylesheet">
+    <link href="/style/default_style.css" rel="stylesheet">
     <script
             src="https://code.jquery.com/jquery-3.2.1.min.js"
             integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
@@ -26,10 +26,15 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
     <script src="Libraries/dist/clipboard.js"></script>
 
-    <script type="text/javascript" src="resources/funtions.js"></script>
+    <script type="text/javascript" src="/funtions.js"></script>
 
+    <script>
+
+    </script>
 
 </head>
 
@@ -63,7 +68,8 @@
     <p>Aquí puede observar las últimas 4 operaciones realizadas, así como su resultado.
         Además, si así lo desea, también puede eliminar operaciones de su historial.</p>
 
-
+    <button id="quitar">&#8597</button>
+    <br><br>
     <div class="divTable">
         <div class="divTableBody">
             <div class="divTableRow">
@@ -77,28 +83,28 @@
                 <div class="divTableCell">No Op</div>
                 <div class="divTableCell">No Op</div>
                 <div class="divTableCell">No Rs</div>
-                <img id="cruz1" onclick="eliminarOp(1)" src="resources/Cross.png" alt="Remove element 1">
+                <img id="cruz1" onclick="eliminarOp(1)" src="/Cross.png" alt="Remove element 1">
             </div>
             <div id="fila2" class="divTableRow">
                 <div class="divTableCell">No Op</div>
                 <div class="divTableCell">No Op</div>
                 <div class="divTableCell">No Op</div>
                 <div class="divTableCell">No Rs</div>
-                <img id="cruz2" onclick="eliminarOp(2)" src="resources/Cross.png" alt="Remove element 2">
+                <img id="cruz2" onclick="eliminarOp(2)" src="/Cross.png" alt="Remove element 2">
             </div>
             <div id="fila3" class="divTableRow">
                 <div class="divTableCell">No Op</div>
                 <div class="divTableCell">No Op</div>
                 <div class="divTableCell">No Op</div>
                 <div class="divTableCell">No Rs</div>
-                <img id="cruz3" onclick="eliminarOp(3)" src="resources/Cross.png" alt="Remove element 3">
+                <img id="cruz3" onclick="eliminarOp(3)" src="/Cross.png" alt="Remove element 3">
             </div>
             <div id="fila4" class="divTableRow">
                 <div class="divTableCell">No Op</div>
                 <div class="divTableCell">No Op</div>
                 <div class="divTableCell">No Op</div>
                 <div class="divTableCell">No Rs</div>
-                <img id="cruz4" onclick="eliminarOp(4)" src="resources/Cross.png" alt="Remove element 4">
+                <img id="cruz4" onclick="eliminarOp(4)" src="/Cross.png" alt="Remove element 4">
             </div>
         </div>
     </div>
@@ -107,6 +113,15 @@
     <p>Realize aquí sus diversos cálculos de manera simple.</p>
 
     <div class="operate">
+
+   <!--     <script>
+            $(document).ready(function(){
+                $("#op1").click({
+                    $("body").css("background-color","blue");
+            });
+            });
+        </script>-->
+
         <input type="textfield"  id="op1" name="op1" placeholder="Operando 1">
 
         <select name="operation" id="lista">
@@ -138,6 +153,6 @@
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-<script src="./resources/viewpoint_bug.js"></script>
+<script src="./viewpoint_bug.js"></script>
 </body>
 </html>

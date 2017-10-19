@@ -87,6 +87,8 @@ h3 {
     margin-right: 10px;
 }
 
+
+
 [class*="col-"] {
   padding-top: 1rem;
   padding-bottom: 1rem;
@@ -101,6 +103,16 @@ h3 {
 
 [id^="fila"]:hover{
     background-color: #FFFF99;
+}
+
+#quitar{
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    padding: 6px 0;
+    font-size: 12px;
+    border-radius: 15px;
+    float: none;
 }
 
 #b01 {

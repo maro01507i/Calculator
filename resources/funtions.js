@@ -8,6 +8,8 @@ function operar(){
 
         var result = calcular(op1,op2);
         document.getElementById("result").value = result;
+
+
     }
 }
 
@@ -18,6 +20,7 @@ function calcular(op1,op2){
     else if(op == "*")return op1 * op2;
     else if(op == "/")return op1 / op2;
     else if(op == "b")return Math.pow(op1,op2);
+
 }
 
 function isNumber(n) {
@@ -98,3 +101,18 @@ function deshabilitar() {
 function eliminarOp(pos) {
 
 }
+
+function equivalenciaOP(op) {
+    if(op == "+")return 1;
+    else if(op == "-")return 2;
+    else if(op == "*")return 3;
+    else if(op == "/")return 4;
+    else if(op == "b")return 5;
+}
+
+$(document).ready(function(){
+    $("button").click(function(){
+        $("p").toggle();
+        $("h1").toggle();
+    });
+});

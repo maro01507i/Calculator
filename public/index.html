@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/favicon.png">
+
+    <title>Calculadora online</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"/>
+
+    <!-- Custom styles for this template -->
+    <link href="/style/default_style.css" rel="stylesheet">
+    <script
+            src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <script src="/Libraries/dist/clipboard.js"></script>
+
+    <script type="text/javascript" src="/funtions.js"></script>
+</head>
+
+<body>
+
+<script>
+    var clipboard = new Clipboard('.copiar');
+    clipboard.on('success', function(e) {
+        console.log(e);
+    });
+    clipboard.on('error', function(e) {
+        console.log(e);
+    });
+</script>
+
+<div class="container">
+    <div class="page-header">
+        <ul>
+            <li><a class="active" href="">Home</a></li>
+            <li><a href="calculador.html">Calculadora</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+            <li><a href="registro.html">Registro</a></li>
+            <li style="float:right"><a class="active" href="login.html">Logeado como...</a></li>
+        </ul>
+    </div>
+
+    <h1>Calculadora online</h1>
+    <p class="lead">La simple calculadora que realiza sus operaciones cotidianas online.</p>
+    <h3>Descripción</h3>
+    <p>Calculadora online es una simple calculadora que te ayuda con tus cuentas diarias. Además, te permite guardar tus últimas
+    operaciones realizadas, podiendolas eliminar del registro si así lo considera.</p>
+    <br><br>
+    <p>Si quiere unirse a nuestro servicio,
+    simplemente pulse <a href="registro.html">aquí</a>, o simplemente pulse en el menú superior.</p>
+    <p>Si ya está registrado, y quiere empezar/continuar con sus operaciones, pulse <a href="calculador.html"> aquí</a>,
+    o seleccione la opción en el menú superior.</p>
+    <p>Si quiere ponerse en contacto con el creador de la página, pulse <a href="contacto.html"> aquí</a>,
+        o seleccione la opción en el menú superior.</p>
+</div>
+
+<footer class="footer">
+    <div class="container text-center">
+        <a href="https://github.com/maro01507i"><i class="fa fa-github"></i></a>
+        <a href="https://plus.google.com/u/0/100863868903173131951"><i class="fa fa-google-plus"></i></a>
+        <a class="copiar" data-clipboard-text="ivan.martin@opendeusto.es" onclick="copiado()"> <i class="fa fa-envelope" aria-hidden="true"></i></a>
+        <a href="https://twitter.com/grupo009Iweb"><i class="fa fa-twitter"></i></a>
+    </div>
+</footer>
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="./viewpoint_bug.js"></script>
+</body>
+</html>

@@ -2,51 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="55ae0c67-bb95-4430-a785-2ee9e6186c5e" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/Cross.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/Libraries/.babelrc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/Libraries/.banner" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/Libraries/.editorconfig" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/Libraries/.github/issue_template.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/Libraries/.gitignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/Libraries/.npmignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/Libraries/.travis.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/Libraries/bower.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/Libraries/contributing.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/Libraries/demo/constructor-node.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/Libraries/demo/constructor-nodelist.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/Libraries/demo/constructor-selector.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/Libraries/demo/function-target.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/Libraries/demo/function-text.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/Libraries/demo/target-div.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/Libraries/demo/target-input.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/Libraries/demo/target-textarea.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/Libraries/dist/clipboard.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/Libraries/dist/clipboard.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/Libraries/karma.conf.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/Libraries/package.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/Libraries/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/Libraries/readme.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/Libraries/src/clipboard-action.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/Libraries/src/clipboard.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/Libraries/test/clipboard-action.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/Libraries/test/clipboard.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/bootstrap.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/calculador.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/contacto.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/database.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/eula.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/favicon.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/funtions.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/login.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/registro.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/style/colorfun.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/style/default_style.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/style/sign in.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/style/sign up.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/viewpoint_bug.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/body-parser/package.json" afterPath="$PROJECT_DIR$/node_modules/body-parser/package.json" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -60,8 +18,18 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="17">
+              <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="funtions.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/funtions.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="19" column="5" lean-forward="false" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -70,8 +38,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1428">
-              <caret line="84" column="6" lean-forward="false" selection-start-line="84" selection-start-column="6" selection-end-line="84" selection-end-column="6" />
+            <state relative-caret-position="119">
+              <caret line="7" column="34" lean-forward="false" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -90,7 +58,7 @@
       <file leaf-file-name="registro.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/registro.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
+            <state relative-caret-position="901">
               <caret line="53" column="6" lean-forward="false" selection-start-line="53" selection-start-column="2" selection-end-line="53" selection-end-column="6" />
               <folding />
             </state>
@@ -100,8 +68,8 @@
       <file leaf-file-name="calculador.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/calculador.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="331">
-              <caret line="122" column="25" lean-forward="true" selection-start-line="122" selection-start-column="25" selection-end-line="122" selection-end-column="25" />
+            <state relative-caret-position="1836">
+              <caret line="108" column="18" lean-forward="false" selection-start-line="108" selection-start-column="18" selection-end-line="108" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -130,6 +98,7 @@
     <findStrings>
       <find>hbs</find>
       <find>html</find>
+      <find>Calculador</find>
     </findStrings>
     <replaceStrings>
       <replace>hbs</replace>
@@ -154,8 +123,9 @@
         <option value="$PROJECT_DIR$/public/registro.hbs" />
         <option value="$PROJECT_DIR$/public/calculador.hbs" />
         <option value="$PROJECT_DIR$/public/contacto.hbs" />
-        <option value="$PROJECT_DIR$/public/calculador.html" />
+        <option value="$PROJECT_DIR$/public/funtions.js" />
         <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/public/calculador.html" />
       </list>
     </option>
   </component>
@@ -190,6 +160,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -212,7 +183,6 @@
         </subPane>
       </pane>
       <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -253,27 +223,29 @@
       <workItem from="1508339635038" duration="312000" />
       <workItem from="1508741528182" duration="1605000" />
       <workItem from="1508914365949" duration="5444000" />
-      <workItem from="1508944580438" duration="997000" />
+      <workItem from="1508944580438" duration="6485000" />
+      <workItem from="1509007318128" duration="3683000" />
+      <workItem from="1509011554153" duration="1353000" />
+      <workItem from="1509356575523" duration="46000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17876000" />
+    <option name="totallyTimeSpent" value="28446000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16983895" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296355" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -294,7 +266,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/funtions.js" />
     <entry file="file://$PROJECT_DIR$/resources/style/default_style.css" />
     <entry file="file://$PROJECT_DIR$/calculador.html" />
     <entry file="file://$PROJECT_DIR$/contacto.html" />
@@ -345,6 +316,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/contacto.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1156">
+          <caret line="68" column="58" lean-forward="false" selection-start-line="68" selection-start-column="58" selection-end-line="68" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/login.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="901">
@@ -355,23 +334,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1428">
-          <caret line="84" column="6" lean-forward="false" selection-start-line="84" selection-start-column="6" selection-end-line="84" selection-end-column="6" />
+        <state relative-caret-position="119">
+          <caret line="7" column="34" lean-forward="false" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/contacto.html">
+    <entry file="file://$PROJECT_DIR$/public/funtions.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1156">
-          <caret line="68" column="58" lean-forward="false" selection-start-line="68" selection-start-column="58" selection-end-line="68" selection-end-column="58" />
+        <state relative-caret-position="323">
+          <caret line="19" column="5" lean-forward="false" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/registro.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
+        <state relative-caret-position="901">
           <caret line="53" column="6" lean-forward="false" selection-start-line="53" selection-start-column="2" selection-end-line="53" selection-end-column="6" />
           <folding />
         </state>
@@ -379,16 +358,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/calculador.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="122" column="25" lean-forward="true" selection-start-line="122" selection-start-column="25" selection-end-line="122" selection-end-column="25" />
+        <state relative-caret-position="1836">
+          <caret line="108" column="18" lean-forward="false" selection-start-line="108" selection-start-column="18" selection-end-line="108" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="17">
+          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding />
         </state>
       </provider>

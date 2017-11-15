@@ -43,11 +43,28 @@
 <script>
     var clipboard = new Clipboard('.copiar');
     clipboard.on('success', function(e) {
-        console.log(e);
     });
     clipboard.on('error', function(e) {
-        console.log(e);
     });
+</script>
+
+<script>
+    $(document).ready(function() {
+        $.ajax({
+            url: 'http://localhost:8080/get-data',
+            dataType: "json",
+            cache: false,
+            timeout: 5000,
+            success: function(data) {
+               rellenarTabla(data);
+
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                alert('error obteniendo las operaciones' + textStatus + " " + errorThrown);
+            }
+        });
+    });
+
 </script>
 
 <div class="container">
@@ -68,43 +85,42 @@
     <p>Aquí puede observar las últimas 4 operaciones realizadas, así como su resultado.
         Además, si así lo desea, también puede eliminar operaciones de su historial.</p>
 
-    <button id="quitar">&#8597</button>
+    <button id="quitar" onclick="ocultar()">&#8597</button>
     <br><br>
-    <a href="/get-data">LOAD</a>
     <div class="divTable">
         <div class="divTableBody">
             <div class="divTableRow">
                 <div class="divTableCell"><b>Operar 1</b></div>
-                <div class="divTableCell"><b>Operar 2</b></div>
                 <div class="divTableCell"><b>Operación</b></div>
+                <div class="divTableCell"><b>Operar 2</b></div>
                 <div class="divTableCell"><b>Resultado</b></div>
             </div>
             <div id="fila1" class="divTableRow">
-                <div class="divTableCell">No Op</div>
-                <div class="divTableCell">No Op</div>
-                <div class="divTableCell">No Op</div>
-                <div class="divTableCell">No Rs</div>
+                <div id="11" class="divTableCell">No Op</div>
+                <div id="12" class="divTableCell">No Op</div>
+                <div id="13" class="divTableCell">No Op</div>
+                <div id="14" class="divTableCell">No Rs</div>
                 <img id="cruz1" onclick="eliminarOp(1)" src="/Cross.png" alt="Remove element 1">
             </div>
             <div id="fila2" class="divTableRow">
-                <div class="divTableCell">No Op</div>
-                <div class="divTableCell">No Op</div>
-                <div class="divTableCell">No Op</div>
-                <div class="divTableCell">No Rs</div>
+                <div id="21" class="divTableCell">No Op</div>
+                <div id="22" class="divTableCell">No Op</div>
+                <div id="23" class="divTableCell">No Op</div>
+                <div id="24" class="divTableCell">No Rs</div>
                 <img id="cruz2" onclick="eliminarOp(2)" src="/Cross.png" alt="Remove element 2">
             </div>
             <div id="fila3" class="divTableRow">
-                <div class="divTableCell">No Op</div>
-                <div class="divTableCell">No Op</div>
-                <div class="divTableCell">No Op</div>
-                <div class="divTableCell">No Rs</div>
+                <div id="31" class="divTableCell">No Op</div>
+                <div id="32" class="divTableCell">No Op</div>
+                <div id="33" class="divTableCell">No Op</div>
+                <div id="34" class="divTableCell">No Rs</div>
                 <img id="cruz3" onclick="eliminarOp(3)" src="/Cross.png" alt="Remove element 3">
             </div>
             <div id="fila4" class="divTableRow">
-                <div class="divTableCell">No Op</div>
-                <div class="divTableCell">No Op</div>
-                <div class="divTableCell">No Op</div>
-                <div class="divTableCell">No Rs</div>
+                <div id="41" class="divTableCell">No Op</div>
+                <div id="42" class="divTableCell">No Op</div>
+                <div id="43" class="divTableCell">No Op</div>
+                <div id="44" class="divTableCell">No Rs</div>
                 <img id="cruz4" onclick="eliminarOp(4)" src="/Cross.png" alt="Remove element 4">
             </div>
         </div>

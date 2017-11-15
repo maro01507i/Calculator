@@ -96,30 +96,68 @@ function comprobarTodo() {
 		}
 
     }
-}
-
-function deshabilitar() {
-    if(document.getElementById('terminosCondiciones').checked){
-        document.getElementById("registro").disabled = true
-        document.getElementById('terminosCondiciones').checked = false
+    else{
+        alert("Debe aceptar los términos y condiciones antes de registrarse");
+        return false;
     }
 }
 
 function eliminarOp(pos) {
+    var pos1 =""+ pos + 1;
+    var pos2 =""+ pos + 2;
+    var pos3 =""+ pos + 3;
+    var op1 = document.getElementById(pos1).innerHTML;
+    var lista = document.getElementById(pos2).innerHTML;
+    var op2 = document.getElementById(pos3).innerHTML;
+    if((!isNumber(op1)) || (!isNumber(op2))){
+        alert("No hay operación que borrar en esa posición.");
+        return;
+    }
+    var formData = new FormData();
 
+    formData.append("op1", op1);
+    formData.append("lista", lista);
+    formData.append("op2", op2);
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "http://localhost:8080/removeOP");
+    xhr.send(formData);
 }
 
-function equivalenciaOP(op) {
-    if(op == "+")return 1;
-    else if(op == "-")return 2;
-    else if(op == "*")return 3;
-    else if(op == "/")return 4;
-    else if(op == "b")return 5;
-}
+ function ocultar() {
+     $("p").toggle();
+     $("h1").toggle();
+ }
 
-$(document).ready(function(){
-    $("button").click(function(){
-        $("p").toggle();
-        $("h1").toggle();
-    });
-});
+ function rellenarTabla(data) {
+     var j = 1;
+     var k = 1;
+     var aux;
+     for (var i = 0;i < data.length; i++){
+         if (data[i] == ':') {
+             if (k < 4) {
+                 aux = data.slice(i + 1, data.indexOf(","));
+                 aux = aux.replace(/"/g,'');
+                 var idField =""+ j + k ;
+                 document.getElementById(idField).innerHTML = aux;
+                 i = (data.indexOf(",") + 1);
+                 data = data.slice(i, data.length);
+                 // alert('Valor data '+data);
+                 k++;
+                 i = 0;
+             }
+             else {
+                 aux = data.slice(i + 1, data.indexOf(",") - 1);
+                 // data = data.slice(aux.length, data.length);
+                 var idField =""+ j + k;
+                 document.getElementById(idField).innerHTML = aux;
+                 data = data.slice(data.indexOf(",") + 1, data.length);
+                 k = 1;
+                 j++;
+                 i = 0;
+             }
+
+         }
+     }
+
+ }

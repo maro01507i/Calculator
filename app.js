@@ -131,13 +131,13 @@ app.post('/sendMs', function(req, res) {
 });
 
 app.post('/removeOP', function(req, res) {
-
     var item = {
         op1: req.body.op1,
         lista:req.body.lista,
         op2: req.body.op2,
         result: calcular.calcular(req.body.op1,req.body.op2,req.body.lista)
     };
+
     console.log(item);
     if (item) {
         mongo.connect(url, function (err, db) {
@@ -146,11 +146,11 @@ app.post('/removeOP', function(req, res) {
                 assert.equal(null, err);
                 console.log('Operation eliminated');
                 db.close();
+                res.sendStatus(200);
             });
         });
     }
-    app.use(express.static(path.join(__dirname, '/public')));
-    res.sendFile(__dirname + '/public/calculador.html');
+    res.sendStatus(500);
 });
 
 var port = process.env.PORT || 8080;

@@ -113,15 +113,13 @@ function eliminarOp(pos) {
         alert("No hay operación que borrar en esa posición.");
         return;
     }
-    var formData = new FormData();
-
-    formData.append("op1", op1);
-    formData.append("lista", lista);
-    formData.append("op2", op2);
+    var data =  {op1: op1, lista: lista, op2: op2}
 
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", "http://localhost:8080/removeOP");
-    xhr.send(formData);
+    xhr.open("POST", "http://localhost:8080/removeOP", true);
+    xhr.setRequestHeader("Content-Type","application/json");
+    xhr.send(JSON.stringify(data));
+    window.location.reload(false);
 }
 
  function ocultar() {

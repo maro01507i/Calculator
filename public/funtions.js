@@ -84,21 +84,39 @@ function comprobarContra() {
 
 function comprobarTodo() {
     if(document.getElementById('terminosCondiciones').checked){
-       var bol1 = validarMail()
-		var bol2 = comprobarContra()
-		if(bol1 && bol2 == true){
+        var bol1 = validarMail()
+        var bol2 = comprobarContra()
+        if(bol1 && bol2 == true){
             document.getElementById("registro").disabled = false
-			return true
-		}
-		else{
+            return true
+        }
+        else{
             document.getElementById('terminosCondiciones').checked = false
-			return false
-		}
+            return false
+        }
 
     }
     else{
         alert("Debe aceptar los términos y condiciones antes de registrarse");
         return false;
+    }
+}
+
+function guardarOP() {
+    if(!validarEnvio()) return
+    else{
+        var op1 = document.getElementById("op1").value;
+        var lista = document.getElementById("lista").value;
+        var op2 = document.getElementById("op2").value;
+
+        var data =  {op1: op1, lista: lista, op2: op2}
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "http://localhost:8080/insertOP", true);
+        xhr.setRequestHeader("Content-Type","application/json");
+        xhr.send(JSON.stringify(data));
+        window.location.reload(true);
+
     }
 }
 
@@ -119,43 +137,43 @@ function eliminarOp(pos) {
     xhr.open("POST", "http://localhost:8080/removeOP", true);
     xhr.setRequestHeader("Content-Type","application/json");
     xhr.send(JSON.stringify(data));
-    window.location.reload(false);
+    window.location.reload(true);
 }
 
- function ocultar() {
-     $("p").toggle();
-     $("h1").toggle();
- }
+function ocultar() {
+    $("p").toggle();
+    $("h1").toggle();
+}
 
- function rellenarTabla(data) {
-     var j = 1;
-     var k = 1;
-     var aux;
-     for (var i = 0;i < data.length; i++){
-         if (data[i] == ':') {
-             if (k < 4) {
-                 aux = data.slice(i + 1, data.indexOf(","));
-                 aux = aux.replace(/"/g,'');
-                 var idField =""+ j + k ;
-                 document.getElementById(idField).innerHTML = aux;
-                 i = (data.indexOf(",") + 1);
-                 data = data.slice(i, data.length);
-                 // alert('Valor data '+data);
-                 k++;
-                 i = 0;
-             }
-             else {
-                 aux = data.slice(i + 1, data.indexOf(",") - 1);
-                 // data = data.slice(aux.length, data.length);
-                 var idField =""+ j + k;
-                 document.getElementById(idField).innerHTML = aux;
-                 data = data.slice(data.indexOf(",") + 1, data.length);
-                 k = 1;
-                 j++;
-                 i = 0;
-             }
+function rellenarTabla(data) {
+    var j = 1;
+    var k = 1;
+    var aux;
+    for (var i = 0;i < data.length; i++){
+        if (data[i] == ':') {
+            if (k < 4) {
+                aux = data.slice(i + 1, data.indexOf(","));
+                aux = aux.replace(/"/g,'');
+                var idField =""+ j + k ;
+                document.getElementById(idField).innerHTML = aux;
+                i = (data.indexOf(",") + 1);
+                data = data.slice(i, data.length);
+                // alert('Valor data '+data);
+                k++;
+                i = 0;
+            }
+            else {
+                aux = data.slice(i + 1, data.indexOf(",") - 1);
+                // data = data.slice(aux.length, data.length);
+                var idField =""+ j + k;
+                document.getElementById(idField).innerHTML = aux;
+                data = data.slice(data.indexOf(",") + 1, data.length);
+                k = 1;
+                j++;
+                i = 0;
+            }
 
-         }
-     }
+        }
+    }
 
- }
+}

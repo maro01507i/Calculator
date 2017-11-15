@@ -63,7 +63,7 @@ app.post('/insertOP', function(req, res) {
         });
     }
     app.use(express.static(path.join(__dirname, '/public')));
-    res.sendFile(__dirname + '/public/calculador.html');
+    res.sendStatus(200);
 });
 
 app.post('/registro', function(req, res) {
@@ -143,14 +143,18 @@ app.post('/removeOP', function(req, res) {
         mongo.connect(url, function (err, db) {
             assert.equal(null, err);
             db.collection('Operacion').removeOne(item, function(err, result) {
+                if(err){
+                    res.sendStatus(500);
+                }
                 assert.equal(null, err);
                 console.log('Operation eliminated');
                 db.close();
                 res.sendStatus(200);
+
             });
         });
     }
-    res.sendStatus(500);
+    else res.sendStatus(500);
 });
 
 var port = process.env.PORT || 8080;

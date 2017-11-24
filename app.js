@@ -1,13 +1,15 @@
-var path = require('path');
 mongo = require('mongodb').MongoClient;
 express = require('express');
 http=require('http');
 bodyParser = require('body-parser');
 var app  = express();
-var assert = require('assert');
-var url = 'mongodb://localhost:27017/Calculador';
-var calcular = require("./Node/utilities");
-var email = require("./Node/utilities");
+var passport = require('passport');
+var expressSession = require('express-session');
+app.use(expressSession({secret: 'mySecretKey'}));
+app.use(passport.initialize());
+app.use(passport.session());
+var urlResponseHandlers = require("./Node/urlResponseHandler");
+var controller = require("./Node/controller");
 
 app.use(bodyParser.urlencoded({
     extended: true
@@ -15,146 +17,36 @@ app.use(bodyParser.urlencoded({
 
 app.use(bodyParser.json());
 
+app.use(express.static(__dirname + '/public'));
+
 app.get('/',function(req,res){
-
-    app.use(express.static(path.join(__dirname, '/public')));
-
-    res.sendFile(__dirname + '/public/index.html');
+    res.redirect("index.html");
 });
 
 
 app.get('/get-data', function(req, res, next) {
-    var resultArray = [];
-    mongo.connect(url, function(err, db) {
-        assert.equal(null, err);
-        var cursor = db.collection('Operacion').find({},{'_id': 0,'op1': 1,'op2': 1,'lista': 1,'result': 1}).sort({$natural:-1}).limit(4);
-        var number = 0;
-        cursor.forEach(function(doc, err) {
-            assert.equal(null, err);
-            console.log(doc);
-            resultArray.push(doc);
-            number++;
-        }, function() {
-            db.close();
-            res.contentType('application/json');
-            resultArray[resultArray.length] = number;
-            var jsonString = JSON.stringify( resultArray );
-            res.json(jsonString);
-        });
-    });
+    controller.dispatch(urlResponseHandlers.getOPs, req, res);
 });
 
-app.post('/insertOP', function(req, res) {
+app.post('/login', function(req, res, next) {
+    controller.dispatch(urlResponseHandlers.login, req, res);
+});
 
-    var item = {
-        op1: req.body.op1,
-        lista:req.body.lista,
-        op2: req.body.op2,
-        result: calcular.calcular(req.body.op1,req.body.op2,req.body.lista)
-    };
-    if (item) {
-        mongo.connect(url, function (err, db) {
-            assert.equal(null, err);
-            db.collection('Operacion').insertOne(item, function (err, result) {
-                assert.equal(null, err);
-                console.log('Operation inserted');
-                db.close();
-            });
-        });
-    }
-    app.use(express.static(path.join(__dirname, '/public')));
-    res.sendStatus(200);
+
+app.post('/insertOP', function(req, res) {
+    controller.dispatch(urlResponseHandlers.insertOP, req, res);
 });
 
 app.post('/registro', function(req, res) {
-
-    var item = {
-        nombre: req.body.nombre,
-        email:req.body.email,
-        psw: req.body.psw
-    };
-    if (item) {
-        /* User.find({ 'username': username,'email':email }, function(err, user) {
-
-             if (err) {
-
-                 console.log('Signup error');
-                 return done(err);
-             }
-
-             //if user found.
-             if (user.length!=0) {
-                 if(user[0].username){
-                     console.log('Username already exists, username: ' + username);
-                 }else{
-                     console.log('EMAIL already exists, email: ' + email);
-                 }
-                 var err = new Error();
-                 err.status = 310;
-                 return done(err);
-
-             }*/
-        mongo.connect(url, function (err, db) {
-            assert.equal(null, err);
-            db.collection('Users').insertOne(item, function (err, result) {
-                assert.equal(null, err);
-                console.log('User inserted');
-                db.close();
-                email.sendEmail(req,res);
-            });
-        });
-    }
-    app.use(express.static(path.join(__dirname, '/public')));
-    res.sendFile(__dirname + '/public/respuestaRegistro.html');
+    controller.dispatch(urlResponseHandlers.insertUser, req, res);
 });
 
 app.post('/sendMs', function(req, res) {
-
-    var item = {
-        nombre: req.body.name,
-        asunto:req.body.subject,
-        mensaje: req.body.message
-    };
-
-    if (item){
-        mongo.connect(url, function(err, db) {
-            assert.equal(null, err);
-            db.collection('Mensajes').insertOne(item, function(err, result) {
-                assert.equal(null, err);
-                console.log('Message inserted');
-                db.close();
-            });
-        });
-        app.use(express.static(path.join(__dirname, '/public')));
-        res.sendFile(__dirname + '/public/respuesta.html');
-    }
+    controller.dispatch(urlResponseHandlers.sendMS, req, res);
 });
 
 app.post('/removeOP', function(req, res) {
-    var item = {
-        op1: req.body.op1,
-        lista:req.body.lista,
-        op2: req.body.op2,
-        result: calcular.calcular(req.body.op1,req.body.op2,req.body.lista)
-    };
-
-    console.log(item);
-    if (item) {
-        mongo.connect(url, function (err, db) {
-            assert.equal(null, err);
-            db.collection('Operacion').removeOne(item, function(err, result) {
-                if(err){
-                    res.sendStatus(500);
-                }
-                assert.equal(null, err);
-                console.log('Operation eliminated');
-                db.close();
-                res.sendStatus(200);
-
-            });
-        });
-    }
-    else res.sendStatus(500);
+    controller.dispatch(urlResponseHandlers.removeOP, req, res);
 });
 
 var port = process.env.PORT || 8080;

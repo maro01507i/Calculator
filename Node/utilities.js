@@ -26,7 +26,7 @@ function sendEmail(req,res) {
         from: 'mailproyectodas@gmail.com',
         to: email,
         subject: 'Gracias por registrarse, '+nombre,
-        text: 'Buenos días, '+nombre+', gracias por registrarse en nuestra plataforma y hacerla más grande.'
+        text: 'Buenos días, '+nombre+', gracias por registrarse en nuestra plataforma y ayudarla a expandirla.'
     };
 
     transporter.sendMail(mailOptions, function(error, info){

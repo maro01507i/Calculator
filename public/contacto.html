@@ -11,19 +11,18 @@
     tiene diversa información de contacto.</p>
 <div class="container"><!--Source: https://www.w3schools.com/howto/howto_css_contact_form.asp -->
     <!--<form action="/action_page.php">-->
-    <form action="/sendMs" method="post">
-        <label for="name">Nombre</label>
-        <input type="text" id="name" name="name" placeholder="Nombre..." required>
 
-        <label for="subject">Asunto</label>
-        <input type="text" id="subject" name="subject" placeholder="Indica tu asunto...">
+    <label for="name">Nombre</label>
+    <input type="text" id="name" name="name" placeholder="Nombre..." required>
 
-        <label for="subject">Mensaje</label>
-        <textarea id="message" name="message" placeholder="Escribe tu mensaje..." style="height:200px" required></textarea>
+    <label for="subject">Asunto</label>
+    <input type="text" id="subject" name="subject" placeholder="Indica tu asunto...">
 
-        <input type="submit" value="Enviar">
+    <label for="subject">Mensaje</label>
+    <textarea id="message" name="message" placeholder="Escribe tu mensaje..." style="height:200px" required></textarea>
 
-    </form>
+    <input type="submit" value="Enviar" onclick="enviarMensaje()">
+
 </div>
 
 

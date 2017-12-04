@@ -207,6 +207,33 @@ function getData() {
     });
 }
 
+function enviarMensaje() {
+
+    var name = document.getElementById("name").value;
+    var subject = document.getElementById("subject").value;
+    var message = document.getElementById("message").value;
+
+    if(!comprobarMensaje(name, message)) return;
+
+
+    var data = {name : name, subject : subject, message : message};
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "http://localhost:8080/sendMs", false);
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.send(JSON.stringify(data));
+    var response = xhr.statusText;
+    if (response == "OK") {
+        alert("Gracias por su mensaje.");
+        limpiarCamposMsg();
+    }
+    else {
+        alert("Error al enviar el mensaje: " + response);
+    }
+
+
+
+}
 function focus(idField) {
     document.getElementById(idField).className  += "active";
 }
@@ -235,4 +262,22 @@ function limpiarTabla(){
         }
 
     }
+}
+
+function comprobarMensaje(name, text) {
+    if(name == null || name == "") {
+        alert("El campo del nombre no puede estar vacio.");
+        return false;
+    }
+    if(text == null || text == ""){
+        alert("El campo del mensaje no puede estar vacio.");
+        return false;
+    }
+    return true;
+}
+
+function limpiarCamposMsg() {
+    document.getElementById("name").value = "";
+    document.getElementById("subject").value = "";
+    document.getElementById("message").value = "";
 }

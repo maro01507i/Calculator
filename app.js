@@ -8,8 +8,8 @@ var expressSession = require('express-session');
 app.use(expressSession({secret: 'mySecretKey'}));
 app.use(passport.initialize());
 app.use(passport.session());
-var urlResponseHandlers = require("./Node/urlResponseHandler");
-var controller = require("./Node/controller");
+var urlResponseHandlers = require("./urlResponseHandler");
+var controller = require("./controller");
 
 app.use(bodyParser.urlencoded({
     extended: true

@@ -109,13 +109,19 @@ function guardarOP() {
         var lista = document.getElementById("lista").value;
         var op2 = document.getElementById("op2").value;
 
-        var data =  {op1: op1, lista: lista, op2: op2}
+        var data =  {op1: op1, lista: lista, op2: op2};
 
         var xhr = new XMLHttpRequest();
-        xhr.open("POST", "http://localhost:8080/insertOP", true);
+        xhr.open("POST", "http://localhost:8080/insertOP", false);
         xhr.setRequestHeader("Content-Type","application/json");
         xhr.send(JSON.stringify(data));
-        window.location.reload(true);
+        var response = xhr.statusText;
+        if (response == "OK") {
+            getData();
+        }
+        else {
+            alert("Error al guardar la operacion en el servidor: "+response);
+        }
 
     }
 }
@@ -134,10 +140,16 @@ function eliminarOp(pos) {
     var data =  {op1: op1, lista: lista, op2: op2}
 
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", "http://localhost:8080/removeOP", true);
+    xhr.open("POST", "http://localhost:8080/removeOP", false);
     xhr.setRequestHeader("Content-Type","application/json");
     xhr.send(JSON.stringify(data));
-    window.location.reload(true);
+    var response = xhr.statusText;
+    if(response == "OK"){
+        getData();
+    }
+    else {
+        alert("Error al borrar la operacion del servidor: "+response);
+    }
 }
 
 function ocultar() {
@@ -176,4 +188,51 @@ function rellenarTabla(data) {
         }
     }
 
+}
+
+function getData() {
+    if(!(document.getElementById("11") == "No Op"))limpiarTabla();
+    $.ajax({
+        url: 'http://localhost:8080/get-data',
+        dataType: "json",
+        cache: false,
+        timeout: 5000,
+        success: function(data) {
+            rellenarTabla(data);
+
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            alert('error obteniendo las operaciones' + textStatus + " " + errorThrown);
+        }
+    });
+}
+
+function focus(idField) {
+    document.getElementById(idField).className  += "active";
+}
+
+function defocus() {
+    var campos = ["index","calculadora","contacto"];
+    for(var i = 0; i < campos.length; i++){
+        if( document.getElementById(campos[i]).classList.contains("active"));
+        document.getElementById(campos[i]).classList.remove("active");
+    }
+}
+
+function limpiarTabla(){
+
+    var aux;
+    var idField;
+    for (var i = 1;i <= 4; i++){
+        for(var k = 1; k <= 4; k++) {
+            idField =""+ i + k ;
+            if (k == 4) {
+                document.getElementById(idField).innerHTML = "No Rs";
+            }
+            else {
+                document.getElementById(idField).innerHTML = "No Op";
+            }
+        }
+
+    }
 }

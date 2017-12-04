@@ -17,7 +17,7 @@ function calcular(op1,op2,op){
 
 }
 
-function sendEmail(req,res) {
+function sendEmail(req) {
 
     var email = req.body.email;
     var nombre = req.body.nombre;

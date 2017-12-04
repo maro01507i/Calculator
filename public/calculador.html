@@ -1,40 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="./favicon.png">
-
-    <title>Calculadora online</title>
-
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"/>
-
-    <!-- Custom styles for this template -->
-    <link href="/style/default_style.css" rel="stylesheet">
-    <script
-            src="https://code.jquery.com/jquery-3.2.1.min.js"
-            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-            crossorigin="anonymous"></script>
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-    <script src="Libraries/dist/clipboard.js"></script>
-
-    <script type="text/javascript" src="/funtions.js"></script>
-
-    <script>
-
-    </script>
 
 </head>
 
@@ -50,37 +16,12 @@
 
 <script>
     $(document).ready(function() {
-        $.ajax({
-            url: 'http://localhost:8080/get-data',
-            dataType: "json",
-            cache: false,
-            timeout: 5000,
-            success: function(data) {
-                rellenarTabla(data);
-
-            },
-            error: function(jqXHR, textStatus, errorThrown) {
-                alert('error obteniendo las operaciones' + textStatus + " " + errorThrown);
-            }
-        });
+        getData();
     });
 
 </script>
 
 <div class="container">
-    <div class="page-header">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a class="active" href="#">Calculadora</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
-            <li><a href="registro.html">Registro</a></li>
-            <li style="float:right"><a class="active" href="login.html">Logeado como...</a></li>
-        </ul>
-    </div>
-
-    <h1>Calculadora online</h1>
-    <p class="lead">La simple calculadora que realiza sus operaciones cotidianas online.</p>
-
     <h3>Últimas operaciones</h3>
     <p>Aquí puede observar las últimas 4 operaciones realizadas, así como su resultado.
         Además, si así lo desea, también puede eliminar operaciones de su historial.</p>
@@ -152,9 +93,8 @@
         </select>
 
         <input type="textfield"  id="op2" name="op2" placeholder="Operando 2">
-        <button id="b01" type="button" onclick="operar()">=</button>
+        <button id="b01" type="button" onclick="operar();guardarOP();">=</button>
         <input type="textfield" placeholder="Resultado..." id="result" name="result" disabled>
-        <button id="guardar" onclick="guardarOP()">&#128190;</button>
         <button type="button" id="b02" onclick="limpiarTexto()">X</button>
 
 
@@ -162,15 +102,6 @@
     </div>
 
 </div> <!-- /container -->
-
-<footer class="footer">
-    <div class="container text-center">
-        <a href="https://github.com/maro01507i"><i class="fa fa-github"></i></a>
-        <a href="https://plus.google.com/u/0/100863868903173131951"><i class="fa fa-google-plus"></i></a>
-        <a class="copiar" data-clipboard-text="ivan.martin@opendeusto.es" onclick="copiado()"> <i class="fa fa-envelope" aria-hidden="true"></i></a>
-        <a href="https://twitter.com/grupo009Iweb"><i class="fa fa-twitter"></i></a>
-    </div>
-</footer>
 
 <!-- Bootstrap core JavaScript
 ================================================== -->

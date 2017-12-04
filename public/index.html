@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="/favicon.png">
+    <link rel="icon" href="favicon.png">
 
     <title>Calculadora online</title>
 
@@ -16,7 +16,7 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"/>
 
     <!-- Custom styles for this template -->
-    <link href="/style/default_style.css" rel="stylesheet">
+    <link href="style/default_style.css" rel="stylesheet">
     <script
             src="https://code.jquery.com/jquery-3.2.1.min.js"
             integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
@@ -26,7 +26,45 @@
 
     <script src="/Libraries/dist/clipboard.js"></script>
 
-    <script type="text/javascript" src="/funtions.js"></script>
+    <script type="text/javascript" src="funtions.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            //Iniciamos con la pagina principal
+            $(".cuerpo").load('welcome.html');
+           // focusClass("index", true);
+            defocus();
+            focus("index");
+
+            //Cargamos la calculadora
+            $('#calculadora').click(function(){
+                $(".cuerpo").load('calculador.html');
+             //   defocus(focusClass("",false));
+                defocus();
+                focus("calculadora");
+               // focusClass("calculadora",true);
+            });
+
+            //Cargamos el index
+            $('#index').click(function(){
+                $(".cuerpo").load('welcome.html');
+                defocus();
+              //  defocus(focusClass("",false));
+                focus("index");
+              //  focusClass("index");
+            });
+
+            //Cargamos el index
+            $('#contacto').click(function(){
+                $(".cuerpo").load('contacto.html');
+                defocus();
+              //  defocus((focusClass("",false)));
+                focus("contacto")//TODO: comprobar cual quitar
+               // focusClass("contacto");
+            });
+        })
+    </script>
+
 </head>
 
 <body>
@@ -42,28 +80,23 @@
 </script>
 
 <div class="container">
-    <div class="page-header">
+    <div class="page-header" id="header">
         <ul>
-            <li><a class="active" href="">Home</a></li>
-            <li><a href="calculador.html">Calculadora</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
-            <li><a href="registro.html">Registro</a></li>
+            <li ><a id="index" href="#">Home</a></li>
+            <li><a id="calculadora" href="#">Calculadora</a></li>
+            <li><a id="contacto" href="#">Contacto</a></li>
+            <li><a id="registro" href="registro.html">Registro</a></li>
             <li style="float:right"><a class="active" href="login.html">Logeado como...</a></li>
         </ul>
+        <!-- Aquí va el contenido-->
     </div>
+    <div class="titulo">
+        <h1>Calculadora online</h1>
+        <p class="lead">La simple calculadora que realiza sus operaciones cotidianas online.</p>
+    </div>
+    <div class="cuerpo">
 
-    <h1>Calculadora online</h1>
-    <p class="lead">La simple calculadora que realiza sus operaciones cotidianas online.</p>
-    <h3>Descripción</h3>
-    <p>Calculadora online es una simple calculadora que te ayuda con tus cuentas diarias. Además, te permite guardar tus últimas
-    operaciones realizadas, podiendolas eliminar del registro si así lo considera.</p>
-    <br><br>
-    <p>Si quiere unirse a nuestro servicio,
-    simplemente pulse <a href="registro.html">aquí</a>, o simplemente pulse en el menú superior.</p>
-    <p>Si ya está registrado, y quiere empezar/continuar con sus operaciones, pulse <a href="calculador.html"> aquí</a>,
-    o seleccione la opción en el menú superior.</p>
-    <p>Si quiere ponerse en contacto con el creador de la página, pulse <a href="contacto.html"> aquí</a>,
-        o seleccione la opción en el menú superior.</p>
+    </div>
 </div>
 
 <footer class="footer">

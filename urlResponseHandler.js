@@ -1,14 +1,20 @@
 var path = require('path');
 /*var MongoClient = require('mongodb').MongoClient;
-var conversionsXML = "";
+var conversionsXML = "";*/
 var assert = require('assert');
-var nodemailer = require('nodemailer');*/
 var express = require("express");
+var url = 'mongodb://localhost:27017/Calculador';
+//var mongoose = require('mongoose').Mongoose;
+var mongoose = require('mongoose');
+mongoose.connect(url);
 var app = express();
 var assert = require('assert');
-var url = 'mongodb://localhost:27017/Calculador';
 var calcular = require("./utilities");
 var email = require("./utilities");
+app.use(express.static(path.join(__dirname, '/public')));
+var Schema = mongoose.Schema({
+    email : String
+});
 
 
 function getOPs(req,res) {
@@ -34,6 +40,22 @@ function getOPs(req,res) {
 }
 
 function login(req,res) {
+
+    var mail = req.body.email;
+    var psw =  req.body.psw;
+
+    mongo.connect(url, function(err, db) {
+        assert.equal(null, err);
+        var number = db.collection('Users').find({$and: [ {email: mail}, {psw: psw}]}).count();
+        if(number == 0){
+            res.sendStatus(401);
+        }
+
+        else {
+            res.redirect("index.html");
+        }
+    });
+
     // passport/login.js
     /* passport.use('login', new LocalStrategy({
              passReqToCallback : true
@@ -63,7 +85,6 @@ function login(req,res) {
                  }
              );
          }));*/
-    res.redirect("index.html");
 }
 
 function insertOP(req,res) {
@@ -96,39 +117,29 @@ function insertUser(req,res) {
         psw: req.body.psw
     };
     if (item) {
-        /* User.find({ 'username': username,'email':email }, function(err, user) {
+        //var mongoose = require('mongoose');
+        var Usuarios = mongoose.model( "Model",Schema,"Users");
+        Usuarios.find({'email': req.body.email}, function(err, user) {
+            console.log(user.length);
+            if (user.length) {
+             //TODO: mirar esto
 
-             if (err) {
-
-                 console.log('Signup error');
-                 return done(err);
-             }
-
-             //if user found.
-             if (user.length!=0) {
-                 if(user[0].username){
-                     console.log('Username already exists, username: ' + username);
-                 }else{
-                     console.log('EMAIL already exists, email: ' + email);
-                 }
-                 var err = new Error();
-                 err.status = 310;
-                 return done(err);
-
-             }*/
-        mongo.connect(url, function (err, db) {
-            assert.equal(null, err);
-            db.collection('Users').insertOne(item, function (err, result) {
+            }
+            else{
+            mongo.connect(url, function (err, db) {
                 assert.equal(null, err);
-                console.log('User inserted');
-                db.close();
-                email.sendEmail(req,res);
-            });
-        });
+                db.collection('Users').insertOne(item, function (err, result) {
+                    assert.equal(null, err);
+                    console.log('User inserted');
+                    db.close();
+                    email.sendEmail(req);
+                    res.sendFile(__dirname + '/public/respuestaRegistro.html');
+                });
+            });}
+        })
 
 
-        app.use(express.static(path.join(__dirname, '/public')));
-        res.sendFile(__dirname + '/public/respuestaRegistro.html');
+
     }
     else res.sendStatus(400);
 }
@@ -150,7 +161,6 @@ function sendMS(req,res) {
                 db.close();
             });
         });
-        app.use(express.static(path.join(__dirname, '/public')));
         res.sendFile(__dirname + '/public/respuesta.html');
     }
 }

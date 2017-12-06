@@ -126,6 +126,38 @@ function guardarOP() {
     }
 }
 
+function insertarUsuario() {
+    if(!comprobarTodo()) return
+    else{
+        var nombre = document.getElementById("nombre").value;
+        var email = document.getElementById("mail").value;
+        var psw = document.getElementById("pass1").value;
+
+        var data =  {nombre: nombre, email: email, psw : psw};
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "http://localhost:8080/registro", false);
+        xhr.setRequestHeader("Content-Type","application/json");
+        xhr.send(JSON.stringify(data));
+        var response = xhr.statusText;
+        if (response == "OK") {
+            window.location.replace("login.html")
+        }
+        else {
+            if(response == "Conflict"){
+                alert("El correo introducido  ya está registrado")
+                document.getElementById("mail").value == ""
+            }
+            else if(response == "Bad Request"){
+                alert("Error al conectar con el servidor")
+            }
+            else{
+                alert("Error al recibir la información")
+            }
+        }
+    }
+}
+
 function eliminarOp(pos) {
     var pos1 =""+ pos + 1;
     var pos2 =""+ pos + 2;

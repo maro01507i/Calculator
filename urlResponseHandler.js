@@ -4,10 +4,12 @@ var conversionsXML = "";*/
 var assert = require('assert');
 var express = require("express");
 var url = 'mongodb://localhost:27017/Calculador';
-//var mongoose = require('mongoose').Mongoose;
+//var mongoose = require('mongoose').Mongoose
+
 var mongoose = require('mongoose');
 mongoose.connect(url);
 var app = express();
+
 var assert = require('assert');
 var calcular = require("./utilities");
 var email = require("./utilities");
@@ -15,7 +17,6 @@ app.use(express.static(path.join(__dirname, '/public')));
 var Schema = mongoose.Schema({
     email : String
 });
-
 
 function getOPs(req,res) {
     var resultArray = [];
@@ -122,20 +123,19 @@ function insertUser(req,res) {
         Usuarios.find({'email': req.body.email}, function(err, user) {
             console.log(user.length);
             if (user.length) {
-             //TODO: mirar esto
-
+                res.sendStatus(409);
             }
             else{
-            mongo.connect(url, function (err, db) {
-                assert.equal(null, err);
-                db.collection('Users').insertOne(item, function (err, result) {
+                mongo.connect(url, function (err, db) {
                     assert.equal(null, err);
-                    console.log('User inserted');
-                    db.close();
-                    email.sendEmail(req);
-                    res.sendFile(__dirname + '/public/respuestaRegistro.html');
-                });
-            });}
+                    db.collection('Users').insertOne(item, function (err, result) {
+                        assert.equal(null, err);
+                        console.log('User inserted');
+                        db.close();
+                        email.sendEmail(req);
+                        res.sendStatus(200);
+                    });
+                });}
         })
 
 

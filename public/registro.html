@@ -32,7 +32,6 @@
 
 <h2>Registro</h2>
 
-<form action="/registro"  style="border:1px solid #ccc" method="post" onsubmit="return comprobarTodo();">
     <div class="container">
         <label><b>Nombre</b></label>
         <input id="nombre" type="text" placeholder="Introduzca su nombre" name="nombre" required>
@@ -48,10 +47,10 @@
         <p><input type="checkbox" id="terminosCondiciones">Creando esta cuenta acepta nuestros<a href="eula.hbs" target="_blank"> términos y condiciones de uso</a>.</p>
         <div class="clearfix">
             <button type="button" class="cancelbtn" onclick="location.href = 'index.html';">Cancelar</button>
-            <button id="registro" type="submit" class="signupbtn">Registrase</button>
+            <button id="registro" type="submit" class="signupbtn" onclick="insertarUsuario()">Registrase</button>
         </div>
     </div>
-</form>
+
 
 </body>
 </html>

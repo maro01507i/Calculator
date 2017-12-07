@@ -40,6 +40,40 @@ function getOPs(req,res) {
 
 }
 
+function insertUser(req,res) {
+
+    var item = {
+        nombre: req.body.nombre,
+        email:req.body.email,
+        psw: req.body.psw
+    };
+    if (item) {
+        //var mongoose = require('mongoose');
+        var Usuarios = mongoose.model( "Model",Schema,"Users");
+        Usuarios.find({'email': req.body.email}, function(err, user) {
+            console.log(user.length);
+            if (user.length) {
+                res.sendStatus(409);
+            }
+            else{
+                mongo.connect(url, function (err, db) {
+                    assert.equal(null, err);
+                    db.collection('Users').insertOne(item, function (err, result) {
+                        assert.equal(null, err);
+                        console.log('User inserted');
+                        db.close();
+                        email.sendEmail(req);
+                        res.sendStatus(200);
+                    });
+                });}
+        })
+
+
+
+    }
+    else res.sendStatus(400);
+}
+
 function login(req,res) {
 
     var mail = req.body.email;
@@ -110,39 +144,6 @@ function insertOP(req,res) {
     res.sendStatus(200);
 }
 
-function insertUser(req,res) {
-
-    var item = {
-        nombre: req.body.nombre,
-        email:req.body.email,
-        psw: req.body.psw
-    };
-    if (item) {
-        //var mongoose = require('mongoose');
-        var Usuarios = mongoose.model( "Model",Schema,"Users");
-        Usuarios.find({'email': req.body.email}, function(err, user) {
-            console.log(user.length);
-            if (user.length) {
-                res.sendStatus(409);
-            }
-            else{
-                mongo.connect(url, function (err, db) {
-                    assert.equal(null, err);
-                    db.collection('Users').insertOne(item, function (err, result) {
-                        assert.equal(null, err);
-                        console.log('User inserted');
-                        db.close();
-                        email.sendEmail(req);
-                        res.sendStatus(200);
-                    });
-                });}
-        })
-
-
-
-    }
-    else res.sendStatus(400);
-}
 
 function sendMS(req,res) {
 

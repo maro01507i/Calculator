@@ -13,7 +13,7 @@ function calcular(op1,op2,op){
     else if(op == "-")return op1 - op2;
     else if(op == "*")return op1 * op2;
     else if(op == "/")return op1 / op2;
-    else if(op == "b")return Math.pow(op1,op2);
+    else if(op == "^")return Math.pow(op1,op2);
 
 }
 

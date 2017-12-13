@@ -103,27 +103,54 @@ function comprobarTodo() {
 }
 
 function guardarOP() {
+
     if(!validarEnvio()) return
-    else{
+    else {
         var op1 = document.getElementById("op1").value;
         var lista = document.getElementById("lista").value;
         var op2 = document.getElementById("op2").value;
 
-        var data =  {op1: op1, lista: lista, op2: op2};
+        var data = {op1: op1, lista: lista, op2: op2};
 
         var xhr = new XMLHttpRequest();
         xhr.open("POST", "http://localhost:8080/insertOP", false);
-        xhr.setRequestHeader("Content-Type","application/json");
+        xhr.setRequestHeader("Content-Type", "application/json");
         xhr.send(JSON.stringify(data));
         var response = xhr.statusText;
         if (response == "OK") {
             getData();
         }
         else {
-            alert("Error al guardar la operacion en el servidor: "+response);
+            alert("Error al guardar la operacion en el servidor: " + response);
         }
 
     }
+}
+
+function login() {
+
+    var mail = document.getElementById("mail").value;
+    var psw = document.getElementById("psw").value;
+
+    var data =  {mail: mail, psw: psw};
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "http://localhost:8080/login", false);
+    xhr.setRequestHeader("Content-Type","application/json");
+    xhr.send(JSON.stringify(data));
+    var response = xhr.statusText;
+    if (response == "OK") {
+        window.location.replace("index.html");
+    }
+    else {
+        if(response == "Unauthorized"){
+            alert("Usuario no existe");
+        }else{
+            alert("Error al establecer conexión con el servidor "+response);
+        }
+    }
+
+
 }
 
 function insertarUsuario() {
@@ -141,7 +168,7 @@ function insertarUsuario() {
         xhr.send(JSON.stringify(data));
         var response = xhr.statusText;
         if (response == "OK") {
-            window.location.replace("login.html")
+            window.location.replace("login.html");
         }
         else {
             if(response == "Conflict"){

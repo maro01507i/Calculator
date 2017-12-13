@@ -82,6 +82,7 @@ function login(req,res) {
     mongo.connect(url, function(err, db) {
         assert.equal(null, err);
         var number = db.collection('Users').find({$and: [ {email: mail}, {psw: psw}]}).count();
+        console.log(number);
         if(number == 0){
             res.sendStatus(401);
         }
@@ -162,7 +163,7 @@ function sendMS(req,res) {
                 db.close();
             });
         });
-        res.sendFile(__dirname + '/public/respuesta.html');
+        res.sendStatus(200);
     }
 }
 

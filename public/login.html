@@ -32,23 +32,23 @@
 
 <h2>Log in</h2>
 
-<form action="/login">
+
 
     <div class="container">
         <label><b>Mail</b></label>
-        <input type="text" placeholder="Introduzca su correo" name="mail" required>
+        <input type="text" id="mail" placeholder="Introduzca su correo" name="mail" required>
 
         <label><b>Contraseña</b></label>
-        <input type="password" placeholder="Introduzca su contraseña" name="pass" required>
+        <input type="password" id="psw" placeholder="Introduzca su contraseña" name="psw" required>
 
-        <button type="submit">Entrar</button>
+        <button type="submit" onclick="login()">Entrar</button>
     </div>
 
     <div class="container" style="background-color:#f1f1f1">
         <button type="button" class="cancelbtn" onclick="location.href = 'index.html';">Cancelar</button>
         <span class="registro">¿No tienes cuenta?<a href="registro.html">Regístrate</a></span>
     </div>
-</form>
+
 
 </body>
 </html>
